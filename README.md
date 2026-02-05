@@ -38,4 +38,99 @@ View real-time execution results
 This makes it easy to experiment with different workflows without changing code.”
 “In short, I turned unreliable AI calls into structured, retryable, production-ready workflows.”
 This can be extended for multi-agent systems, validation using JSON schema, and real enterprise automation.”
-Thank you.”
+
+
+🔧 Backend (Node.js + Express)
+Location: UNBOUND_HACKATHON/backend
+Root-level files
+server.js
+Entry point of the backend
+Starts the Express server
+Registers routes and middleware
+db.js
+Database connection or mock DB setup
+Used for storing workflow runs / results (if applicable)
+.env
+Environment variables (API keys, ports, secrets)
+package.json / package-lock.json
+Backend dependencies and scripts
+
+src/ folder (core backend logic)
+config/
+env.js
+Centralized environment config loader
+Reads values from .env
+routes/
+workflow.routes.js
+Defines API endpoints
+Example: POST /api/workflows/run
+Connects HTTP requests to services
+repositories/
+workflow.repo.js
+Handles workflow persistence
+Reads/writes workflow runs or definitions
+Keeps DB logic separate from business logic
+services/
+workflowExecutor.js
+Core engine of your project 🚀
+Executes workflow steps sequentially
+Handles retries and step progression
+criteriaChecker.js
+Validates AI output
+Supports regex or rule-based checks
+Decides pass/fail for each step
+unbound.service.js
+Handles AI model interaction
+Sends prompts to the LLM
+Receives model responses
+
+🎨 Frontend (React + Vite)
+You effectively have two frontend layers here.
+
+1️⃣ Frontend API Helper
+Location: UNBOUND_HACKATHON/frontend/src
+api.js
+Centralized API calls
+Talks to backend endpoints
+Keeps fetch logic reusable
+
+2️⃣ Workflow UI (Main UI App)
+Location: UNBOUND_HACKATHON/frontend/workflow-ui
+Root files
+index.html
+Main HTML entry point for Vite
+vite.config.js
+Vite configuration
+Dev server & build setup
+eslint.config.js
+Linting rules
+package.json / package-lock.json
+Frontend dependencies (React, etc.)
+
+src/ folder (React app)
+App.jsx / App.js (implied)
+Main UI component
+Workflow JSON editor (textarea)
+“Run Workflow” button
+Displays results
+Other React components (if any)
+UI logic
+State handling
+
+public/
+Static assets (icons, images, etc.)
+
+🧠 Big Picture (How It All Connects)
+Frontend
+User pastes workflow JSON
+Clicks “Run Workflow”
+Sends JSON to backend API
+Backend
+Receives workflow
+Executes steps using workflowExecutor
+Calls AI via unbound.service
+Validates output with criteriaChecker
+Retries or moves forward
+Returns result to UI
+
+
