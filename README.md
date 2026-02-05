@@ -1,46 +1,80 @@
 
 🔧 **Backend** (Node.js + Express)
 Location: UNBOUND_HACKATHON/backend
+
 Root-level files
+
 server.js
-Entry point of the backend
-Starts the Express server
-Registers routes and middleware
+
+    Entry point of the backend
+
+    Starts the Express server
+    
+    Registers routes and middleware
 db.js
-Database connection or mock DB setup
-Used for storing workflow runs / results (if applicable)
+
+    Database connection or mock DB setup
+    
+    Used for storing workflow runs / results (if applicable)
+
 .env
-Environment variables (API keys, ports, secrets)
+     
+     Environment variables (API keys, ports, secrets)
+
 package.json / package-lock.json
-Backend dependencies and scripts
+      
+      Backend dependencies and scripts
 
 src/ folder (core backend logic)
+
 config/
-env.js
-Centralized environment config loader
-Reads values from .env
+
+    env.js
+     
+      Centralized environment config loader
+      Reads values from .env
 routes/
-workflow.routes.js
-Defines API endpoints
+
+    workflow.routes.js
+    Defines API endpoints
+
 Example: POST /api/workflows/run
+
 Connects HTTP requests to services
+
 repositories/
+
 workflow.repo.js
+
 Handles workflow persistence
+
 Reads/writes workflow runs or definitions
+
 Keeps DB logic separate from business logic
+
 services/
+
 workflowExecutor.js
-Core engine of your project 🚀
+Core engine of project 
+
 Executes workflow steps sequentially
+
 Handles retries and step progression
+
 criteriaChecker.js
+
 Validates AI output
+
 Supports regex or rule-based checks
+
 Decides pass/fail for each step
+
 unbound.service.js
+
 Handles AI model interaction
+
 Sends prompts to the LLM
+
 Receives model responses
 
 🎨 **Frontend** (React + Vite)
