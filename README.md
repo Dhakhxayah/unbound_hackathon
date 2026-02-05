@@ -37,78 +37,76 @@ routes/
 
     workflow.routes.js
     Defines API endpoints
-
-Example: POST /api/workflows/run
-
-Connects HTTP requests to services
+    Example: POST /api/workflows/run
+    Connects HTTP requests to services
 
 repositories/
 
-workflow.repo.js
+    workflow.repo.js
 
-Handles workflow persistence
-
-Reads/writes workflow runs or definitions
-
-Keeps DB logic separate from business logic
+      Handles workflow persistence
+      Reads/writes workflow runs or definitions
+      Keeps DB logic separate from business logic
 
 services/
 
 workflowExecutor.js
-Core engine of project 
-
-Executes workflow steps sequentially
-
-Handles retries and step progression
+         
+         Core engine of project 
+         Executes workflow steps sequentially
+         Handles retries and step progression
 
 criteriaChecker.js
 
-Validates AI output
-
-Supports regex or rule-based checks
-
-Decides pass/fail for each step
+     Validates AI output
+     Supports regex or rule-based checks
+     Decides pass/fail for each step
 
 unbound.service.js
 
-Handles AI model interaction
-
-Sends prompts to the LLM
-
-Receives model responses
+    Handles AI model interaction
+    Sends prompts to the LLM
+    Receives model responses
 
 🎨 **Frontend** (React + Vite)
 You effectively have two frontend layers here.
 
 1️⃣ Frontend API Helper
 Location: UNBOUND_HACKATHON/frontend/src
+
 api.js
-Centralized API calls
-Talks to backend endpoints
-Keeps fetch logic reusable
+        
+        Centralized API calls
+        Talks to backend endpoints
+        Keeps fetch logic reusable
 
 2️⃣ Workflow UI (Main UI App)
 Location: UNBOUND_HACKATHON/frontend/workflow-ui
 Root files
-index.html
-Main HTML entry point for Vite
+       
+       index.html
+            Main HTML entry point for Vite
 vite.config.js
-Vite configuration
-Dev server & build setup
+        
+        Vite configuration
+        Dev server & build setup
+        
 eslint.config.js
-Linting rules
+
+        Linting rules
+        
 package.json / package-lock.json
-Frontend dependencies (React, etc.)
+         
+        Frontend dependencies (React, etc.)
 
 src/ folder (React app)
 App.jsx / App.js (implied)
-Main UI component
-Workflow JSON editor (textarea)
-“Run Workflow” button
-Displays results
-Other React components (if any)
-UI logic
-State handling
+
+     Main UI component
+     Workflow JSON editor (textarea)
+     “Run Workflow” button
+      Displays results
+
 
 public/
 Static assets (icons, images, etc.)
